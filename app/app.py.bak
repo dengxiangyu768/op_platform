@@ -1,3 +1,5 @@
+#!/usr/bin/python
+#coding:utf-8
 import os
 from flask import Flask
 from flask import request
@@ -5,11 +7,12 @@ from flask import render_template
 from flask import session,redirect,url_for 
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField
 from wtforms.validators import Required
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_script import Shell
+from flask_migrate import Migrate,MigrateCommand
 
 
 app = Flask(__name__)
@@ -19,11 +22,14 @@ bootstarp = Bootstrap(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SECRET_KEY'] = '0707eb3a-38c9-497e-9d6c-3069bce2e603'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    'sqllite:///' + os.path.join(basedir,'data.sqllite')
+    'sqlite:///' + os.path.join(basedir,'data.sqllite')
 app.config['SQLALCHEMY_COMMIT_IN_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
+migrate = Migrate(app,db)
+manager.add_command('db',MigrateCommand)
 
-class NameForm(Form):
+class NameForm(FlaskForm):
     name = StringField('what is your name?',validators=[Required()])
     submit = SubmitField("Submit")
 
@@ -42,6 +48,13 @@ class User(db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+#自动导入数据库实例和模型
+def make_shell_context():
+    return dict(app=app, db=db, User=User, Role=Role)
+
+manager.add_command("shell",Shell(make_shell_context))
 
 @app.errorhandler(404)
 def page_not_found(e):
