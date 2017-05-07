@@ -2,99 +2,33 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 713-678-988
-127.0.0.1 - - [07/May/2017 22:51:19] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:20] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:20] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:22] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:22] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:23] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:24] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:29] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:29] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:32] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:32] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:33] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:33] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:37] "POST /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:40] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:40] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:43] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:43] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:51:46] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:51:46] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:09] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:11] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:53:11] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:14] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:53:14] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:16] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:53:16] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:46] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:53:48] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:53:48] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:05] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:25] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:28] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:54:28] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:31] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:54:31] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:33] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:54:33] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:54:34] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:54:34] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET / HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1997, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1985, in wsgi_app
-    response = self.handle_exception(e)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1540, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/op_platform/app/main/views.py", line 14, in index
-    return render_template('index.html',form=form,name=session.get('name'))
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
-    context, ctx.app)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
-    rv = template.render(context)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/op_platform/app/templates/index.html", line 2, in top-level template code
-    {% import "bootstrap/wtf.html" as wtf %}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/op_platform/app/templates/base.html", line 1, in top-level template code
-    {% extends "bootstrap/base.html" %}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
-    {% block navbar %}
-  File "/Users/dengxiangyu/dengxiangyu/flask_web_api/op_platform/app/templates/base.html", line 22, in block "navbar"
-    <li><a href="{{ url_for('auth.logout')}}">{{ current_user.decode('utf-8') }}Sign Out</a></li>
-UndefinedError: 'app.models.User object' has no attribute 'decode'
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:12] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:30] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:57:56] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:59:03] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:59:05] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:59:05] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 22:59:08] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 22:59:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:44] "GET /auth/logout HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:44] "GET /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:49] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:53] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:53] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:55] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:55] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:57] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:57] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:58] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:58] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:59] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:59] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:16:59] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:16:59] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:08] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:08] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:12] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:12] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:14] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:14] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:15] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:15] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:16] "POST /auth/login?next=%2F HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2017 23:17:21] "POST / HTTP/1.1" 302 -
+127.0.0.1 - - [07/May/2017 23:17:21] "GET / HTTP/1.1" 200 -

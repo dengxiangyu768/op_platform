@@ -4,9 +4,12 @@ from ..forms import NameForm
 from . import main
 from .. import db
 from ..models import User
+from flask_login import login_required
 
 @main.route('/',methods=['GET','POST'])
+@login_required
 def index():
+
     form = NameForm()
     if form.validate_on_submit() :
         session['name'] = form.name.data
