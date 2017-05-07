@@ -2,32 +2,3 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 713-678-988
-127.0.0.1 - - [07/May/2017 21:45:08] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:45:08] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:47:58] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:47:58] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:00] "GET /auth/login HTTP/1.1" 200 -
- * Detected change in '/Users/dengxiangyu/dengxiangyu/flask_web_api/op_platform/app/auth/views.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 713-678-988
-127.0.0.1 - - [07/May/2017 21:48:27] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:28] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:28] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:30] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:30] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:32] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:32] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:33] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:33] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:36] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:36] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:37] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:37] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:48:39] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:48:39] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:50:49] "GET /auth/logout HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:50:49] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:50:50] "GET /auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [07/May/2017 21:50:52] "POST /auth/login HTTP/1.1" 302 -
-127.0.0.1 - - [07/May/2017 21:50:52] "GET / HTTP/1.1" 200 -
