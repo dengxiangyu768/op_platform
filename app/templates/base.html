@@ -26,6 +26,9 @@
                  <ul class="nav navbar-nav">
                      <li><a href="/">count</a></li>
                  </ul>
+                 <ul class="nav navbar-nav">
+                     <li><a href="/user">user</a></li>
+                 </ul>
                  <ul class="nav navbar-nav navbar-right">
                      {% if current_user.is_authenticated %}
                      <li><a href="{{ url_for('auth.logout')}}">{{ current_user.username }}</a></li>
