@@ -1,2 +1,5 @@
-1. 安装requirements.txt 中的python 依然
-2. 运行 python manager runserver
+1. 安装requirements.txt 中的python 依赖 
+   pip freeze > requirements.txt
+
+2. 运行 python manager runserver --help
+   python manager runserver --host 0.0.0.0 --port 5000 &
