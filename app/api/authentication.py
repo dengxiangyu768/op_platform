@@ -7,14 +7,15 @@ from . import api
 auth = HTTPBasicAuth()
 
 @auth.verify_password
-def verify_password(username,password):
-    if username == '':
-        return False
-    user = User.query.filter_by(username=username).first()
+def verify_password(username_or_token,password):
+    user = User.verify_auth_token(username_or_token)
     if not user:
-        return False
+        user = User.query.filter_by(username = username_or_token).first()
+        if not user or not user.verify_password(password):
+            return False
     g.current_user = user
-    return user.verify_password(password)
+    return True
+
 
 @auth.error_handler
 def auth_error():
