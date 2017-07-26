@@ -1,3 +1,6 @@
+#coding:utf-8
+
+#
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
@@ -52,6 +55,11 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(64),unique=True,index=True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
+    
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
 
     @property
     def password(self):
@@ -81,6 +89,6 @@ class User(UserMixin,db.Model):
         s = Serializer(current_app.config['SECRET_KEY'])
         try:
             data = s.loads(token)
-        except:
-            return None
+        except: 
+            return None # valid token, but expired
         return User.query.get(data['id'])

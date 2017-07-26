@@ -17,15 +17,6 @@ def verify_password(username_or_token,password):
     return True
 
 
-@auth.error_handler
-def auth_error():
-    return unauthorized('Invalid credentials')
-
-@api.route('/resource')
-@auth.login_required
-def resource():
-    return jsonify({'version':'1.0','data':'hello'})
-
 @api.before_request
 @auth.login_required
 def before_request():
@@ -35,4 +26,4 @@ def before_request():
 @api.route('/token')
 def get_token():
     token = g.current_user.generate_auth_token(expiration=3600)
-    return jsonify({'token':token.decode('ascii')})
+    return jsonify({'retcode':0,'result':'success','token':token.decode('ascii')})
