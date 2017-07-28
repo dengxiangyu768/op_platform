@@ -4,6 +4,15 @@ from flask import g,jsonify
 from .errors import unauthorized, forbidden
 from . import api
 from flask import request
+from .decorators import permission_required,admin_required
+import logging
+
+logging.basicConfig(level=logging.DEBUG,
+                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                datefmt='%a, %d %b %Y %H:%M:%S',
+                filename='app.log',
+                filemode='a')
+    
 
 auth = HTTPBasicAuth()
 
@@ -26,6 +35,7 @@ def before_request():
 
 @api.route('/user',methods=['GET','POST'])
 @auth.login_required
+@admin_required
 def user():
     if request.method == "POST":    
         user_id = request.form['id']
@@ -34,9 +44,11 @@ def user():
              user = User.query.filter_by(id=user_id).first()
              user.password = password
              user.save()
+             logging.info("{user} update {password}".format(user=user,password=password))
              return jsonify({'result':'success','code':0})
         else:
              return jsonify({'result':'para error','code':1}) 
     if request.method == 'GET':
         user = g.current_user.username
+        
         return jsonify({'result':'success','code':0,'message':user})

@@ -8,6 +8,8 @@ from . import login_manager
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app,request,url_for
 
+
+
 class Permission:
     publish = 0b0000000000000001
     deploy = 0b0000000000000010
@@ -21,14 +23,14 @@ class Role(db.Model):
     name = db.Column(db.String(64),unique=True)
     users = db.relationship('User',backref='role')
     default = db.Column(db.Boolean,default=False,index=True)
-    permission = db.Column(db.Integer)
+    permissions = db.Column(db.Integer)
 
     @staticmethod
     def insert_roles():
         roles = {
             'user': (Permission.publish | Permission.deploy,True),
             'deployer': (Permission.publish |Permission.deploy | Permission.rollback,False),
-            'admin': (0b1000000000000000,False)
+            'admin': (Permission.admin,False)
         } 
         for r in roles:
             role = Role.query.filter_by(name=r).first()
@@ -39,12 +41,6 @@ class Role(db.Model):
             db.session.add(role)
         db.session.commit()
 
-    def can(self,permissions):
-        return self.role is not None and \
-            (self.role.permissions & permissions) == permissions 
-
-    def is_administrator(self):
-        return self.can(Permission.admin)
 
     def __repr__(self):
         return '<Role %r>' % self.name
@@ -55,7 +51,7 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(64),unique=True,index=True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
-    
+  
 
     def save(self):
         db.session.add(self)
@@ -74,6 +70,12 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+    def can(self,permissions):
+        roles = Role.query.filter_by(id=self.role_id).first()
+        role_permissions = roles.permissions
+        return self.role_id is not None and \
+            (role_permissions & permissions) == permissions 
 
     @login_manager.user_loader
     def load_user(user_id):
