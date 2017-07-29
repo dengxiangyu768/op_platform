@@ -46,8 +46,3 @@ def user():
         user = g.current_user.username
         current_app.logger.info('get %s',user) 
         return jsonify({'result':'success','code':0,'message':user})
-    elif request.method == 'DELETE':
-        user_id = request.form['id']
-        user = User.query.filter_by(id=user_id).first()
-        db.session.db(user)
-        db.session.commit()
