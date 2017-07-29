@@ -1,17 +1,9 @@
 from flask_httpauth import HTTPBasicAuth
 from ..models import User,Role
-from flask import g,jsonify
+from flask import g,jsonify,request,current_app
 from .errors import unauthorized, forbidden
 from . import api
-from flask import request
 from .decorators import permission_required,admin_required
-import logging
-
-logging.basicConfig(level=logging.DEBUG,
-                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-                datefmt='%a, %d %b %Y %H:%M:%S',
-                filename='app.log',
-                filemode='a')
     
 
 auth = HTTPBasicAuth()
@@ -44,11 +36,18 @@ def user():
              user = User.query.filter_by(id=user_id).first()
              user.password = password
              user.save()
-             logging.info("{user} update {password}".format(user=user,password=password))
+             current_app.logger.info("%s update password success",user) 
              return jsonify({'result':'success','code':0})
         else:
+
+             current_app.logger.info("%s update password failed",user) 
              return jsonify({'result':'para error','code':1}) 
-    if request.method == 'GET':
+    elif request.method == 'GET':
         user = g.current_user.username
-        
+        current_app.logger.info('get %s',user) 
         return jsonify({'result':'success','code':0,'message':user})
+    elif request.method == 'DELETE':
+        user_id = request.form['id']
+        user = User.query.filter_by(id=user_id).first()
+        db.session.db(user)
+        db.session.commit()

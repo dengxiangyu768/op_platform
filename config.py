@@ -16,6 +16,18 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = \
         'sqlite:///' + os.path.join(basedir,'data-dev.sqlite')
+    @classmethod
+    def init_app(cls,app):
+        Config.init_app(app)
+        import logging
+        handler = logging.FileHandler('app.log', encoding='UTF-8')
+        handler.setLevel(logging.DEBUG)
+        logging_format = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+        handler.setFormatter(logging_format)
+        app.logger.addHandler(handler)
+
+    
       
 class TestingConfig(Config):
     TESTING = True
