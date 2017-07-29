@@ -21,23 +21,20 @@ class Role(db.Model):
     __tablename__ = 'roles'
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(64),unique=True)
-    users = db.relationship('User',backref='role')
-    default = db.Column(db.Boolean,default=False,index=True)
     permissions = db.Column(db.Integer)
 
     @staticmethod
     def insert_roles():
         roles = {
-            'user': (Permission.publish | Permission.deploy,True),
-            'deployer': (Permission.publish |Permission.deploy | Permission.rollback,False),
-            'admin': (Permission.admin,False)
+            'user': (Permission.publish | Permission.deploy),
+            'deployer': (Permission.publish |Permission.deploy | Permission.rollback),
+            'admin': (Permission.admin)
         } 
         for r in roles:
             role = Role.query.filter_by(name=r).first()
             if role is None:
                 role = Role(name=r)
-            role.permissions = roles[r][0]
-            role.default = roles[r][1]
+            role.permissions = roles[r]
             db.session.add(role)
         db.session.commit()
 
@@ -49,8 +46,9 @@ class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(64),unique=True,index=True)
-    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    role = db.relationship('Role',backref=db.backref('users_set', lazy='dynamic'))
   
 
     def save(self):

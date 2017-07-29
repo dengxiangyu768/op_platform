@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% block title %}op_platform{% endblock %}
 {% block page_content %} <div class="page-header">
-         <h1>User</h1><br>
-     </div>
+  <h1>User</h1><br>
+  </div>
      <div><button>useradd</button></div><br>
-     <div><table class='table'>
+  <div>
+  <table class='table'>
   <tr>
-    <th>username</th>
+    <th>id</th>
+    <th>user</th>
     <th>role</th>
-    <th>command</th>
   </tr>
-  <tr>
-    <td>dengxiangyu</td>
-    <td>admin</td>
-    <td>add_user</td>
-  </tr>
-</table></div>
+  {% for i in user_message %}
+    <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.username }}</td>
+    <td>{{ i.role }}</td>
+    </tr>
+  {% endfor %}
+  </table></div>
 {% endblock %}

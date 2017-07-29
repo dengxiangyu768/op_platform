@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from forms import NameForm,LoginForm
 from . import main
 from .. import db
-from ..models import User
+from ..models import User,Role
 from flask_login import login_user,logout_user,login_required
 
 @main.route('/login',methods=['GET','POST'])
@@ -31,3 +31,12 @@ def index():
         session['name'] = form.name.data
         return redirect(url_for('main.index')) 
     return render_template('index.html',form=form,name=session.get('name'))
+
+@main.route('/user',methods=['GET'])
+def user():
+    user_message = [] 
+    user_all = User.query.all()
+    for i in user_all:
+        user_message.append({'id':i.id,'username':i.username,\
+        'role':Role.query.filter_by(id=i.role_id).first().name}) 
+    return render_template('user.html',user_message=user_message)
