@@ -3,23 +3,34 @@
 {% block page_content %} <div class="page-header">
   <h1>User</h1><br>
   </div>
-     <div><button>useradd</button></div><br>
+     <div><button id='adduser' onclick="alert('adduser')">useradd</button></div><br>
   <div>
   <table class='table'>
   <tr>
     <th>id</th>
     <th>user</th>
     <th>role</th>
+    <th>action</th>
   </tr>
   {% for i in user_message %}
     <tr>
     <td>{{ i.id }}</td>
     <td>{{ i.username }}</td>
     <td>{{ i.role }}
-    <button>delete</button>
-    <button>modify</button>
+    </td>
+    <td>
+    <button  onclick="modify(this)">modify</button>
+    <button  onclick="delete(this)">delete</button>
     </td>
     </tr>
   {% endfor %}
   </table></div>
+{% endblock %}
+{% block scripts %}
+<script>
+function modify(id)
+{
+id.innerHTML="test";
+}
+</script>
 {% endblock %}
