@@ -5,7 +5,7 @@ from . import main
 from .. import db
 from ..models import User,Role
 from flask_login import login_user,logout_user,login_required
-from ..decorators import permission_required,admin_required
+from .decorators import permission_required,admin_required
 
 @main.route('/login',methods=['GET','POST'])
 def login():
