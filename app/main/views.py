@@ -28,9 +28,10 @@ def logout():
 def index():
     form = NameForm()
     if form.validate_on_submit() :
-        session['name'] = form.name.data
         return redirect(url_for('main.index')) 
-    return render_template('index.html',form=form,name=session.get('name'))
+    return render_template('index.html',form=form)
+#        session['name'] = form.name.data
+#    return render_template('index.html',form=form,name=session.get('name'))
 
 @main.route('/user',methods=['GET'])
 def user():
