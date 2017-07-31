@@ -1,6 +1,5 @@
 #coding:utf-8
 
-#
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
@@ -53,6 +52,10 @@ class User(UserMixin,db.Model):
 
     def save(self):
         db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
         db.session.commit()
 
     @property
