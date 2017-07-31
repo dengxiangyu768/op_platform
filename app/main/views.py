@@ -5,6 +5,7 @@ from . import main
 from .. import db
 from ..models import User,Role
 from flask_login import login_user,logout_user,login_required
+from ..decorators import permission_required,admin_required
 
 @main.route('/login',methods=['GET','POST'])
 def login():
@@ -34,6 +35,8 @@ def index():
 #    return render_template('index.html',form=form,name=session.get('name'))
 
 @main.route('/user',methods=['GET'])
+@login_required
+@admin_required
 def user():
     user_message = [] 
     user_all = User.query.all()

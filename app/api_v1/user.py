@@ -4,7 +4,6 @@ from flask import g,jsonify,request,current_app
 from .errors import unauthorized, forbidden
 from . import api
 from .decorators import permission_required,admin_required
-from flask.ext.restful import reqparse, abort, Api, Resource
     
 
 auth = HTTPBasicAuth()
