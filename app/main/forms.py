@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField,StringField,SubmitField,PasswordField,BooleanField,SelectField
 from wtforms.validators import Required
+from ..models import Role
 
 
 class NameForm(FlaskForm):
@@ -21,3 +22,10 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password',validators=[Required()])
     remember_me = BooleanField('Keep me logged in')
     submit = SubmitField('Log in')
+
+class AddUserForm(FlaskForm):
+    user = StringField(validators=[Required()])
+    password = PasswordField('Password',validators=[Required()])
+    # bug role.choices
+    role = SelectField('Role',validators=[Required()],choices=[('0', 'deployer'), ('1', 'admin'), ('2', 'user')]) 
+    submit = SubmitField('add user')

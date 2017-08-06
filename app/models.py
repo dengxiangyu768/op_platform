@@ -95,3 +95,34 @@ class User(UserMixin,db.Model):
         except: 
             return None # valid token, but expired
         return User.query.get(data['id'])
+
+############################
+# 2017-8-4 dengxiangyu add
+############################
+
+#idc_server = db.Table('idc_server',
+#            db.Column('idc_id',db.Integer,db.ForeignKey('Idc.id')),
+#            db.Column('server_id',db.Integer,db.ForeignKey('Server.id')),
+#)
+#server_version = db.Table('server_version',
+#                  db.Column('server_id',db.Integer,db.ForeignKey('Server.id')),
+#                  db.Column('version',db.Integer,db.ForeignKey('Version.id')),
+#)
+#
+#class Idc(UserMixin,db.Model):
+#    __tablename__ = "idc"
+#    id = db.Column(db.Integer,primary_key=True)
+#    idcname = db.Column(db.String(64),unique=True,index=True)
+#    server = db.relationship('Server',secondary=idc_server,backref=db.backref('server_list',lazy='dynamic'))
+#    
+#
+#class Server(UserMixin,db.Model):
+#    __tablename__ = "server"
+#    id = db.Column(db.Integer,primary_key=True)
+#    servername = db.Column(db.String(64),unique=True,index=True)
+#    version = db.relationship('Version',secondary=server_version,backref=db.backref('Version_list',lazy='dynamic'))
+#
+#class Version(UserMixin,db.Model):
+#    __tablename__ = "version"
+#    id = db.Column(db.Integer,primary_key=True)
+#    versionname = db.Column(db.String(64),unique=True,index=True)

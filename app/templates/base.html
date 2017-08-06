@@ -1,4 +1,11 @@
 {% extends "bootstrap/base.html" %}
+{% block styles %}
+        <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
 {% block title %}Publisher{% endblock %}
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
@@ -15,7 +22,7 @@
              </div>
              <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
-                     <li><a href="/">deploy</a></li>
+                     <li><a href="/">release</a></li>
                  </ul>
                  <ul class="nav navbar-nav">
                      <li><a href="/user">user</a></li>

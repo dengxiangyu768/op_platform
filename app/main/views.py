@@ -1,6 +1,6 @@
 from flask import render_template,session,redirect,url_for,flash
 from flask_wtf import FlaskForm
-from forms import NameForm,LoginForm
+from forms import NameForm,LoginForm,AddUserForm
 from . import main
 from .. import db
 from ..models import User,Role
@@ -28,7 +28,7 @@ def logout():
 @login_required
 def index():
     form = NameForm()
-    if form.validate_on_submit() :
+    if form.validate_on_submit():
         return redirect(url_for('main.index')) 
     return render_template('index.html',form=form)
 #        session['name'] = form.name.data
@@ -44,3 +44,24 @@ def user():
         user_message.append({'id':i.id,'username':i.username,\
         'role':Role.query.filter_by(id=i.role_id).first().name}) 
     return render_template('user.html',user_message=user_message)
+
+
+
+@main.route('/adduser',methods=['GET','POST'])
+@login_required
+@admin_required
+def adduser():
+    form = AddUserForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.user.data).first()
+        if user is None:
+            user = User()
+            user.username = form.user.data
+            user.password = form.password.data 
+            user.role_id = form.role_id.data
+            user.save()
+            return redirect(url_for('main.user'))
+        else:
+            flash('user is exist!!')   
+            return redirect(url_for('main.user'))
+    return render_template('adduser.html',form=form)

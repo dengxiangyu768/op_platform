@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 {% block title %}op_platform{% endblock %}
-{% block page_content %} <div class="page-header">
-  <h1>User</h1><br>
-  </div>
-     <div><button id='adduser' onclick="alert('adduser')">useradd</button></div><br>
-  <div>
-  <table class='table'>
+{% block page_content %} 
+<div class="page-header">
+<h1>User</h1><br>
+</div>
+<a class="btn btn-primary" href="{{ url_for('main.adduser') }}">adduser</a>
+<table class='table'>
+<tr>
+  <th>id</th>
+  <th>user</th>
+  <th>role</th>
+  <th>action</th>
+</tr>
+{% for i in user_message %}
   <tr>
-    <th>id</th>
-    <th>user</th>
-    <th>role</th>
-    <th>action</th>
+  <td>{{ i.id }}</td>
+  <td>{{ i.username }}</td>
+  <td>{{ i.role }}
+  </td>
+  <td>
+  <a  class="btn btn-primary">modify</a>
+  <a  class="btn btn-primary">delete</a>
+  </td>
   </tr>
-  {% for i in user_message %}
-    <tr>
-    <td>{{ i.id }}</td>
-    <td>{{ i.username }}</td>
-    <td>{{ i.role }}
-    </td>
-    <td>
-    <button  onclick="modify(this)">modify</button>
-    <button  onclick="delete(this)">delete</button>
-    </td>
-    </tr>
-  {% endfor %}
-  </table></div>
+{% endfor %}
+</table></div>
 {% endblock %}
 {% block scripts %}
 <script>
