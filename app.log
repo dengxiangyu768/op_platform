@@ -3,3 +3,7 @@
 2017-07-29 15:42:26,551 - INFO - user.py - user - 47 - get test
 2017-07-29 15:44:04,002 - INFO - authentication.py - get_token - 30 - <User u'test'> get token
 2017-07-29 22:35:33,043 - INFO - authentication.py - get_token - 30 - <User u'dengxy'> get token
+2017-08-07 16:35:06,949 - INFO - views.py - adduser - 60 - add user nihao role 1
+2017-08-07 16:39:18,514 - INFO - views.py - adduser - 60 - add user zhanmiao role 2
+2017-08-07 16:39:27,427 - INFO - views.py - adduser - 60 - add user test role 1
+2017-08-07 16:39:38,922 - INFO - views.py - adduser - 60 - add user ucloud role 2

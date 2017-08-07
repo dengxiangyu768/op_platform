@@ -1,4 +1,4 @@
-from flask import render_template,session,redirect,url_for,flash
+from flask import render_template,session,redirect,url_for,flash,current_app
 from flask_wtf import FlaskForm
 from forms import NameForm,LoginForm,AddUserForm
 from . import main
@@ -31,8 +31,6 @@ def index():
     if form.validate_on_submit():
         return redirect(url_for('main.index')) 
     return render_template('index.html',form=form)
-#        session['name'] = form.name.data
-#    return render_template('index.html',form=form,name=session.get('name'))
 
 @main.route('/user',methods=['GET'])
 @login_required
@@ -41,8 +39,8 @@ def user():
     user_message = [] 
     user_all = User.query.all()
     for i in user_all:
-        user_message.append({'id':i.id,'username':i.username,\
-        'role':Role.query.filter_by(id=i.role_id).first().name}) 
+        role_name = Role.query.filter_by(id=i.role_id).first().name
+        user_message.append({'id':i.id,'username':i.username,'role':role_name})
     return render_template('user.html',user_message=user_message)
 
 
@@ -58,7 +56,8 @@ def adduser():
             user = User()
             user.username = form.user.data
             user.password = form.password.data 
-            user.role_id = form.role_id.data
+            user.role_id = form.role.data[0]
+            current_app.logger.info('add user %s role %s',user.username,user.role_id)
             user.save()
             return redirect(url_for('main.user'))
         else:

@@ -27,5 +27,5 @@ class AddUserForm(FlaskForm):
     user = StringField(validators=[Required()])
     password = PasswordField('Password',validators=[Required()])
     # bug role.choices
-    role = SelectField('Role',validators=[Required()],choices=[('0', 'deployer'), ('1', 'admin'), ('2', 'user')]) 
+    role = SelectField('Role',validators=[Required()],choices=[('1', 'deployer'), ('2', 'admin'), ('3', 'user')]) 
     submit = SubmitField('add user')
