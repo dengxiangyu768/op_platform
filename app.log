@@ -16,3 +16,9 @@
 2017-08-08 14:32:47,578 - INFO - views.py - adduser - 60 - add user xx00 role 2
 2017-08-08 14:33:21,249 - INFO - views.py - adduser - 60 - add user root role 1
 2017-08-08 14:34:01,558 - INFO - views.py - adduser - 60 - add user root role 1
+2017-08-08 14:35:22,385 - INFO - views.py - adduser - 60 - add user root role 2
+2017-08-08 14:35:29,434 - INFO - views.py - adduser - 60 - add user zhanmiao role 1
+2017-08-08 14:35:37,713 - INFO - views.py - adduser - 60 - add user dengxiangyu role 3
+2017-08-08 14:37:34,691 - INFO - views.py - adduser - 60 - add user zhanmiao1 role 1
+2017-08-08 14:59:31,329 - INFO - views.py - adduser - 60 - add user test role 2
+2017-08-08 15:00:44,919 - INFO - views.py - adduser - 60 - add user dengxy role 1
