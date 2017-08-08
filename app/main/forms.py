@@ -25,9 +25,12 @@ class LoginForm(FlaskForm):
 class AddUserForm(FlaskForm):
     user = StringField(validators=[Required()])
     password = PasswordField('Password',validators=[Required()])
-    # bug role.choices
-    role = SelectField('Role',validators=[Required()],choices=[('1', 'deployer'), ('2', 'admin'), ('3', 'user')]) 
+    role = SelectField('Role', coerce=int)
     submit = SubmitField('add user')
+    def __init__(self,*args, **kwargs):
+        super(AddUserForm, self).__init__(*args, **kwargs)
+        self.role.choices = [(role.id, role.name)
+                             for role in Role.query.order_by(Role.name).all()] 
 
 class DelUserForm(FlaskForm):
     user = StringField(validators=[Required()])

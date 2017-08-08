@@ -56,7 +56,7 @@ def adduser():
             user = User()
             user.username = form.user.data
             user.password = form.password.data 
-            user.role_id = form.role.data[0]
+            user.role_id = form.role.data
             current_app.logger.info('add user %s role %s',user.username,user.role_id)
             user.save()
             return redirect(url_for('main.user'))
