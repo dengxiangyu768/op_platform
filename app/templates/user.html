@@ -19,13 +19,9 @@
   <td>{{ i.role }}
   </td>
   <td>
-  <a class="btn btn-primary" href="{{ url_for('main.deluser') }}">delete</a>
+  <a class="btn btn-primary" onclick=alert("sure?") href="{{ url_for('main.deluser',id=i.id) }}">delete</a>
   </td>
   </tr>
 {% endfor %}
 </table></div>
-{% endblock %}
-{% block scripts %}
-<script>
-</script>
 {% endblock %}

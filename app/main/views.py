@@ -65,18 +65,15 @@ def adduser():
             return redirect(url_for('main.user'))
     return render_template('adduser.html',form=form)
 
-@main.route('/deluser',methods=['GET','POST'])
+@main.route('/deluser/<int:id>',methods=['GET','POST'])
 @login_required
 @admin_required
-def deluser():
-    form = DelUserForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.user.data).first()
-        if user:
-            db.session.delete(user)
-            db.session.commit()
-            return redirect(url_for('main.user'))
-        else:
-            flash("user is not exits!!")
-            return redirect(url_for('main.user'))
-    return render_template('deluser.html',form=form)
+def deluser(id):
+    user = User.query.filter_by(id=id).first()
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for('main.user')) 
+    else:
+        flash("user is not exists!!")
+        return redirect(url_for('main.user')) 

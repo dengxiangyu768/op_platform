@@ -8,3 +8,11 @@
 2017-08-07 16:39:27,427 - INFO - views.py - adduser - 60 - add user test role 1
 2017-08-07 16:39:38,922 - INFO - views.py - adduser - 60 - add user ucloud role 2
 2017-08-07 17:13:20,930 - INFO - views.py - adduser - 60 - add user qiniu role 1
+2017-08-08 14:28:02,131 - INFO - views.py - adduser - 60 - add user root role 1
+2017-08-08 14:28:14,621 - INFO - views.py - adduser - 60 - add user xxoo role 1
+2017-08-08 14:28:22,202 - INFO - views.py - adduser - 60 - add user test role 3
+2017-08-08 14:31:43,870 - INFO - views.py - adduser - 60 - add user root role 1
+2017-08-08 14:31:55,751 - INFO - views.py - adduser - 60 - add user root role 1
+2017-08-08 14:32:47,578 - INFO - views.py - adduser - 60 - add user xx00 role 2
+2017-08-08 14:33:21,249 - INFO - views.py - adduser - 60 - add user root role 1
+2017-08-08 14:34:01,558 - INFO - views.py - adduser - 60 - add user root role 1
