@@ -3,7 +3,6 @@ from wtforms import TextAreaField,StringField,SubmitField,PasswordField,BooleanF
 from wtforms.validators import Required
 from ..models import Role
 
-
 class NameForm(FlaskForm):
     idc = SelectField('idc',validators=[Required()] , choices=[('0','yg'),('1','bj'),\
                                                                ('3','la'),('4','ea01'),\
@@ -29,3 +28,7 @@ class AddUserForm(FlaskForm):
     # bug role.choices
     role = SelectField('Role',validators=[Required()],choices=[('1', 'deployer'), ('2', 'admin'), ('3', 'user')]) 
     submit = SubmitField('add user')
+
+class DelUserForm(FlaskForm):
+    user = StringField(validators=[Required()])
+    submit = SubmitField('del user')

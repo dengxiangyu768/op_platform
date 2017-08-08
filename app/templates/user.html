@@ -19,8 +19,7 @@
   <td>{{ i.role }}
   </td>
   <td>
-  <a  class="btn btn-primary">modify</a>
-  <a  class="btn btn-primary">delete</a>
+  <a class="btn btn-primary" href="{{ url_for('main.deluser') }}">delete</a>
   </td>
   </tr>
 {% endfor %}
@@ -28,9 +27,5 @@
 {% endblock %}
 {% block scripts %}
 <script>
-function modify(id)
-{
-id.innerHTML="test";
-}
 </script>
 {% endblock %}

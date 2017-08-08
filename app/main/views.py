@@ -1,10 +1,10 @@
-from flask import render_template,session,redirect,url_for,flash,current_app
+from flask import render_template,session,redirect,url_for,flash,current_app,jsonify,request
 from flask_wtf import FlaskForm
-from forms import NameForm,LoginForm,AddUserForm
+from forms import NameForm,LoginForm,AddUserForm,DelUserForm
 from . import main
 from .. import db
 from ..models import User,Role
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,current_user,login_required
 from .decorators import permission_required,admin_required
 
 @main.route('/login',methods=['GET','POST'])
@@ -64,3 +64,19 @@ def adduser():
             flash('user is exist!!')   
             return redirect(url_for('main.user'))
     return render_template('adduser.html',form=form)
+
+@main.route('/deluser',methods=['GET','POST'])
+@login_required
+@admin_required
+def deluser():
+    form = DelUserForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.user.data).first()
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            return redirect(url_for('main.user'))
+        else:
+            flash("user is not exits!!")
+            return redirect(url_for('main.user'))
+    return render_template('deluser.html',form=form)
