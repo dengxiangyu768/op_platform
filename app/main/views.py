@@ -1,9 +1,9 @@
 from flask import render_template,session,redirect,url_for,flash,current_app,jsonify,request
 from flask_wtf import FlaskForm
-from forms import NameForm,LoginForm,AddUserForm,DelUserForm
+from forms import DeployForm,LoginForm,AddUserForm
 from . import main
 from .. import db
-from ..models import User,Role
+from ..models import User,Role,Idc,Playbook
 from flask_login import login_user,logout_user,current_user,login_required
 from .decorators import permission_required,admin_required
 
@@ -27,10 +27,8 @@ def logout():
 @main.route('/',methods=['GET','POST'])
 @login_required
 def index():
-    form = NameForm()
-    if form.validate_on_submit():
-        return redirect(url_for('main.index')) 
-    return render_template('index.html',form=form)
+    return render_template('index.html')
+
 
 @main.route('/user',methods=['GET'])
 @login_required
@@ -77,3 +75,16 @@ def deluser(id):
     else:
         flash("user is not exists!!")
         return redirect(url_for('main.user')) 
+
+@main.route('/deploy',methods=['GET','POST'])
+@login_required
+@admin_required
+def deploy():
+    form = DeployForm()
+    if form.validate_on_submit():
+        idc = Idc.query.filter_by(id=form.idc.data).first()
+        playbook = Playbook.query.filter_by(id=form.playbook.data).first()
+        ip_list = form.ip_list.data
+        current_app.logger.info("%s command %s %s %s",current_user.username,idc.name,playbook.name,ip_list)
+        return redirect(url_for("main.deploy"))
+    return render_template("deploy.html",form=form)
