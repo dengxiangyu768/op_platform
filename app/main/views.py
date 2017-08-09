@@ -76,6 +76,7 @@ def deluser(id):
         flash("user is not exists!!")
         return redirect(url_for('main.user')) 
 
+# add 2017-08-09
 @main.route('/deploy',methods=['GET','POST'])
 @login_required
 @admin_required
