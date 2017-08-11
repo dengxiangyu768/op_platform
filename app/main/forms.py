@@ -1,3 +1,4 @@
+#coding:utf-8
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField,StringField,SubmitField,PasswordField,BooleanField,SelectField
 from wtforms.validators import Required
@@ -9,7 +10,7 @@ class DeployForm(FlaskForm):
 #                                                               ('5','cs'),('6','hd05')])
     idc = SelectField('Idc', coerce=int)
     playbook = SelectField('Playbook', coerce=int)
-    ip_list = TextAreaField('ip_list',validators=[Required()])
+    ip_list = TextAreaField('ip_list',description=u'每行一个ip',validators=[Required()])
     submit = SubmitField("Submit")
     def __init__(self,*args, **kwargs):
         super(DeployForm,self).__init__(*args, **kwargs)

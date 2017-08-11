@@ -1,0 +1,37 @@
+2017-08-10 12:23:21,042 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml xxoo
+xoo
+xxooo <type 'unicode'>
+2017-08-10 12:24:35,173 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml xxoo
+nihao
+2017-08-10 12:25:12,840 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml x
+2017-08-10 12:25:12,840 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml x
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml o
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml o
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml 
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml 
+
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml x
+2017-08-10 12:25:12,841 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml o
+2017-08-10 12:25:12,842 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml o
+2017-08-10 12:25:12,842 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml o
+2017-08-10 12:25:12,842 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml q
+2017-08-10 12:25:52,844 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml [u'nihao\r\nzhende\r\ntianmao']
+2017-08-10 12:26:22,296 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml [u'xxoo', u'\ndeploy', u'\npublish']
+2017-08-10 12:28:04,416 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml xxoo
+xoo
+2017-08-10 12:28:33,539 - INFO - views.py - deploy - 89 - dengxy command bc deploy_mongo.yml ['xxoo\r\nxosx']
+2017-08-10 12:30:52,444 - INFO - views.py - deploy - 92 - dengxy command bc deploy_mongo.yml ['x', 'x', 'o', 'o', '\r', '\n', 'x', 'x', 'o', 'o']
+2017-08-10 12:32:48,577 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo\r', 'oossx']
+2017-08-10 12:35:01,051 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo\r', 'ooxx']
+2017-08-10 12:35:05,070 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo']
+2017-08-10 12:35:30,982 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo\r', 'ooxx']
+2017-08-10 12:36:40,653 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml xxoo
+ooss
+2017-08-10 12:37:12,817 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml <type 'str'>
+2017-08-10 12:38:01,345 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml <type 'list'>
+2017-08-10 12:38:43,388 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo\r\nooxx']
+2017-08-10 12:39:13,093 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo\r\nooxx']
+2017-08-10 12:41:09,358 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo', 'ooxx']
+2017-08-11 16:05:08,695 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['xxoo']
+2017-08-11 16:07:47,949 - INFO - views.py - deploy - 90 - dengxy command bc deploy_mongo.yml ['nihao']
+2017-08-11 18:00:48,519 - INFO - views.py - deploy - 95 - dengxy command bc deploy_mongo.yml ['xxoo']

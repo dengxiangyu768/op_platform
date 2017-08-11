@@ -7,6 +7,10 @@ from ..models import User,Role,Idc,Playbook
 from flask_login import login_user,logout_user,current_user,login_required
 from .decorators import permission_required,admin_required
 
+import time
+from ..ansible.run import playbook_run
+import os
+
 @main.route('/login',methods=['GET','POST'])
 def login():
      form = LoginForm()
@@ -83,9 +87,12 @@ def deluser(id):
 def deploy():
     form = DeployForm()
     if form.validate_on_submit():
+        timestamp = int(time.time())
         idc = Idc.query.filter_by(id=form.idc.data).first()
         playbook = Playbook.query.filter_by(id=form.playbook.data).first()
-        ip_list = form.ip_list.data
-        current_app.logger.info("%s command %s %s %s",current_user.username,idc.name,playbook.name,ip_list)
+        ip_list = form.ip_list.data.encode()
+        lists = ip_list.replace('\r','').split('\n')
+        playbook_run()
+        current_app.logger.info("%s command %s %s %s",current_user.username,idc.name,playbook.name,lists)
         return redirect(url_for("main.deploy"))
     return render_template("deploy.html",form=form)
